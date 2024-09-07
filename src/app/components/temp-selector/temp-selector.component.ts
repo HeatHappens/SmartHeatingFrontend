@@ -30,6 +30,8 @@ export class TempSelectorComponent {
     this.empID = localStorage.getItem('empID');
     this.empName = localStorage.getItem('fullName');
     this.hasEmployeePreferenceSaved();
+    this.displayCurrentWeather('Mannheim');
+    // this.displayForecastWeather('Mannheim');
   }
 
 
@@ -64,6 +66,17 @@ export class TempSelectorComponent {
     this.dialogRef.closeAll();
   }
 
+  displayCurrentWeather(cityName:string){
+    this.apiService.getCurrentWeather(cityName).subscribe({
+      next:(data)=>{console.log(data)},
+      error:(error)=>{console.log(error)}
+    })
+  }
 
-
+  displayForecastWeather(cityName:string){
+    this.apiService.getForecastWeather(cityName).subscribe({
+      next:(data)=>{console.log(data)},
+      error:(error)=>{console.log(error)}
+    })
+  }
 }

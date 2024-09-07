@@ -13,8 +13,8 @@ export class LoggedEmployeeInfo{
     public dialogConfig = new MatDialogConfig();
     constructor(){
         this.dialogConfig.autoFocus = true;
-        this.dialogConfig.width = '500px';
-        this.dialogConfig.height = '400px';
+        this.dialogConfig.width = '1000px';
+        this.dialogConfig.height = '550px';
     }
 
 

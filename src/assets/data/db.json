@@ -20,18 +20,20 @@
       "lastName": "son",
       "emailID": "gohan@gmail.com",
       "password": "gohan"
+    },
+    {
+      "id": "b900",
+      "firstName": "",
+      "lastName": "",
+      "emailID": "",
+      "password": ""
     }
   ],
   "preferredDayTemp": [
     {
       "id": "c3b7",
       "fullName": "Pavankumar Bashetty",
-      "preferredTemp": 22
-    },
-    {
-      "id": "0fcb",
-      "fullName": "Goku Son",
-      "preferredTemp": 26
+      "preferredTemp": 32
     }
   ]
 }

@@ -1,13 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { ApiService } from '../../_services/api.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule,MatButtonModule],
+  imports: [FormsModule,MatButtonModule,MatIcon],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

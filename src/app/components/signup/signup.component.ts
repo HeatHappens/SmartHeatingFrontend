@@ -3,11 +3,12 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { ApiService } from '../../_services/api.service';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [FormsModule,MatButtonModule],
+  imports: [FormsModule,MatButtonModule,MatIcon],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })

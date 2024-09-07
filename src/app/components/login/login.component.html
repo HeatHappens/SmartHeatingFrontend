@@ -4,7 +4,7 @@
     <form class="common-form" #loginForm="ngForm" (submit)="login(loginForm)">
         <input type="text" class="form-input" placeholder="Your email ID" name="emailID" ngModel>
         <input type="password" class="form-input" placeholder="Your password" name="password" ngModel #password="ngModel">
-        <button type="submit" mat-flat-button>Login</button>
+        <button type="submit" mat-flat-button><mat-icon>login</mat-icon>Login</button>
     </form>
     <p><i>Don't have an account?</i><a (click)="toSignUp()" class="signup-btn"><b>SignUp</b></a></p>
 </div>

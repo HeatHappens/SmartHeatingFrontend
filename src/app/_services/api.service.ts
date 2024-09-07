@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { login, preferredTemp, signup } from "../_customTypes/employeeInfo";
 import { map, Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-
+import { weatherEnvironment as wEnv } from "../../environments/environment";
 
 @Injectable({
     providedIn:'root'
@@ -10,7 +10,6 @@ import { HttpClient } from "@angular/common/http";
 export class ApiService{
 
     private apiURL:string = 'http://localhost:3000';
-    private weatherAPI:string = '';
 
     constructor(private http:HttpClient){}
 
@@ -60,6 +59,16 @@ export class ApiService{
                 }
             })
         )
+    }
+
+    getCurrentWeather(cityName:string):Observable<any>{
+        const currURL = wEnv.WEATHER_BASE_URL + `weather?appid=${wEnv.WEATHER_API_KEY}&units=metric&q=${cityName}`;
+        return this.http.get<any>(currURL);
+    }
+
+    getForecastWeather(cityName:string):Observable<any>{
+        const currURL = wEnv.WEATHER_BASE_URL + `forecast?appid=${wEnv.WEATHER_API_KEY}&units=metric&q=${cityName}`;
+        return this.http.get<any>(currURL);
     }
 }
 
