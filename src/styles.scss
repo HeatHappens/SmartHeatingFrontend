@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* FOR GRID DESIGNS */
+.grid {
+    display: flex;
+}
+
+.row {
+    margin: 10px;
+    flex: 1;
+    padding: 10px;
+}
+
+
+//Form
+.form-container{
+    text-align: center;
+    padding: 50px;
+}
+.common-form {
+    text-align: center;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    width: 300px;
+}
+
+.form-input {
+    height: 35px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border: 1px solid blueviolet;
+    color: blueviolet;
+}
+
+.label-input-div {
+    display: flex;
+    align-items: center;
+}
+
+
+//ERROR or SUCCESS
+.error-msg{
+    color: red;
+}
+
+.success-msg{
+    color: green;
+}

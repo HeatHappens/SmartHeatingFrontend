@@ -1,0 +1,11 @@
+<div class="form-container">
+    <h4>Sign Up</h4>
+    <form class="common-form" #signUpForm="ngForm" (submit)="signup(signUpForm)">
+        <input type="text" class="form-input" placeholder="Firstname" name="firstName" ngModel>
+        <input type="text" class="form-input" placeholder="Lastname" name="lastName" ngModel>
+        <input type="text" class="form-input" placeholder="email ID" name="emailID" ngModel>
+        <input type="password" class="form-input" placeholder="password" name="password" ngModel>
+        <button type="submit" mat-flat-button>Sign up</button>
+    </form>
+    <p><i>Already have an account?</i><a (click)="toLogin()" class="signup-btn"><b>Login</b></a></p>
+</div>

@@ -1,0 +1,18 @@
+<ng-template #preferredTempEntry>
+    <div style="text-align: center;">
+        <br>
+        <p>Employee: <b>{{empID}}</b></p>
+        <p>Today's temp</p>
+        <p>Optimal Target</p>
+        <div style="display: block; margin-bottom: 1rem;">
+            <mat-form-field>
+                <mat-label>Preferred Temperature: </mat-label>
+                <input type="number" matInput [(ngModel)]="preferredTemp">
+            </mat-form-field>
+        </div>
+        <div>
+            <button type="button" mat-flat-button (click)="savePreferredTemp()">Submit</button>
+        </div>
+        <p class="success-msg">{{postSuccessMsg}}</p>
+    </div>
+</ng-template>

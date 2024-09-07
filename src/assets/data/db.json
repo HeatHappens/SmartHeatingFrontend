@@ -1,0 +1,37 @@
+{
+  "employees": [
+    {
+      "id": "c3b7",
+      "firstName": "Pavankumar",
+      "lastName": "Bashetty",
+      "emailID": "pavankumar.rb25@gmail.com",
+      "password": "pavan"
+    },
+    {
+      "id": "0fcb",
+      "firstName": "Goku",
+      "lastName": "Son",
+      "emailID": "goku@gmail.com",
+      "password": "goku"
+    },
+    {
+      "id": "bbfe",
+      "firstName": "gohan",
+      "lastName": "son",
+      "emailID": "gohan@gmail.com",
+      "password": "gohan"
+    }
+  ],
+  "preferredDayTemp": [
+    {
+      "id": "c3b7",
+      "fullName": "Pavankumar Bashetty",
+      "preferredTemp": 22
+    },
+    {
+      "id": "0fcb",
+      "fullName": "Goku Son",
+      "preferredTemp": 26
+    }
+  ]
+}

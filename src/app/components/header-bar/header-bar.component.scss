@@ -1,0 +1,48 @@
+//THIS SCSS IS FOR HEADER (WITHOUT USING ANGULAR-MATERIAL)
+.header{
+    &-container{
+        width: 100%;
+        height: 60px;
+        background-color: #a6bcda;
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 0; //Combined with position: fixed, it ensures the header always stays at the top of the window.
+        left: 0; //Combined with width: 100%, it ensures the header stretches fully from the left to the right side of the screen.
+        z-index: 4;    
+    }
+
+    &-logo{
+        margin-left: 15px;
+        margin-right: 15px;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+}
+
+//---------------------------------------------------
+.example-spacer{
+    flex: 1 1 auto;
+}
+
+.sidenav-container {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 64px);
+
+}
+  
+.sidenav {
+    width: 250px;
+    background-color: #e0e0e0;
+    height: 100%;
+    overflow-y: auto;
+}
+  
+.main-content {
+    padding: 20px;
+    // margin-top: 64px;
+}
