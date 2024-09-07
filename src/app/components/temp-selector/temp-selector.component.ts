@@ -7,11 +7,14 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { preferredTemp } from '../../_customTypes/employeeInfo';
+import { MatIcon } from '@angular/material/icon';
+import { currentWeather } from '../../_customTypes/weatherInfo';
+import { MatError } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-temp-selector',
   standalone: true,
-  imports: [MatFormFieldModule,MatInputModule,FormsModule,MatButtonModule],
+  imports: [MatFormFieldModule,MatInputModule,FormsModule,MatButtonModule,MatIcon, MatError],
   templateUrl: './temp-selector.component.html',
   styleUrl: './temp-selector.component.scss'
 })
@@ -23,6 +26,10 @@ export class TempSelectorComponent {
   empName!:any;
   preferredTemp!:number;
   postSuccessMsg!:string;
+  currentWeatherData!:currentWeather;
+  forecastWeatherData!:any;
+  preferredMinTemp:number = 0;
+  preferredMaxTemp:number = 0;
 
   constructor(private apiService:ApiService, private dialogRef:MatDialog, private loggedEmpInfo:LoggedEmployeeInfo){}
 
@@ -68,14 +75,29 @@ export class TempSelectorComponent {
 
   displayCurrentWeather(cityName:string){
     this.apiService.getCurrentWeather(cityName).subscribe({
-      next:(data)=>{console.log(data)},
+      next:(data)=>{
+        console.log(Math.ceil(data.main.temp_min) - 2)
+        const cDate = new Date(data.dt * 1000).toLocaleString().split(',')[0].trim();
+        this.preferredMinTemp = Math.ceil(data.main.temp_min) - 2;
+        this.preferredMaxTemp = Math.ceil(data.main.temp_max) + 2;
+        this.currentWeatherData = {
+          city:data.name,
+          currentDate: cDate,
+          temp:data.main.temp,
+          feels_like:data.main.feels_like,
+          min_temp:data.main.temp_min,
+          max_temp:data.main.temp_max
+        };
+      },
       error:(error)=>{console.log(error)}
     })
   }
 
   displayForecastWeather(cityName:string){
     this.apiService.getForecastWeather(cityName).subscribe({
-      next:(data)=>{console.log(data)},
+      next:(data)=>{
+        this.forecastWeatherData = data;
+      },
       error:(error)=>{console.log(error)}
     })
   }

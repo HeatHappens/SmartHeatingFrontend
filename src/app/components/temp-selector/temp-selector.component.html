@@ -1,18 +1,28 @@
 <ng-template #preferredTempEntry>
-    <div style="text-align: center;">
-        <br>
-        <p>Your employee ID: <b>{{empID}}</b></p>
-        <p>Today's temp</p>
-        <p>Optimal Target</p>
-        <div style="display: block; margin-bottom: 1rem;">
-            <mat-form-field>
-                <mat-label>Preferred Temperature: </mat-label>
-                <input type="number" matInput [(ngModel)]="preferredTemp">
+    <div class="weather-dialog">
+       <h2 class="dialog-title">Current weather in {{currentWeatherData.city}}</h2>
+       <p class="date">{{currentWeatherData.currentDate}}</p>
+
+       <div class="weather-details">
+        <div class="temp-section">
+            <p>Temperature: <b>{{currentWeatherData.temp}} °C</b></p>
+            <p>Feels like: <b>{{currentWeatherData.feels_like}} °C</b></p>
+            <p>Min: <b>{{currentWeatherData.min_temp}} °C</b></p>
+            <p>Max: <b>{{currentWeatherData.max_temp}} °C</b></p>
+        </div>
+        <div class="target-section">
+            <p class="target-range">Preferred temp range: {{preferredMinTemp}} °C - {{preferredMaxTemp}} °C</p>
+            <mat-form-field class="input-field">
+                <mat-label>Enter preferred temp</mat-label>
+                <input type="number" matInput [(ngModel)]="preferredTemp" [min]="preferredMinTemp" [max]="preferredMaxTemp">
+                @if (preferredTemp < preferredMinTemp || preferredTemp > preferredMaxTemp ) {
+                    <mat-error>Please enter a value between mentioned range</mat-error>
+                }
             </mat-form-field>
+            <button type="button" mat-flat-button (click)="savePreferredTemp()" [disabled]="preferredTemp < preferredMinTemp || preferredTemp > preferredMaxTemp ">Submit</button>
         </div>
-        <div>
-            <button type="button" mat-flat-button (click)="savePreferredTemp()">Submit</button>
-        </div>
+
         <p class="success-msg">{{postSuccessMsg}}</p>
+       </div>
     </div>
 </ng-template>

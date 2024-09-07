@@ -44,9 +44,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 //ERROR or SUCCESS
 .error-msg{
+    margin-top: 10px;
     color: red;
 }
 
 .success-msg{
+    margin-top: 10px;
     color: green;
 }
