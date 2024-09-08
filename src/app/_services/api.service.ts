@@ -70,5 +70,20 @@ export class ApiService{
         const currURL = wEnv.WEATHER_BASE_URL + `forecast?appid=${wEnv.WEATHER_API_KEY}&units=metric&q=${cityName}`;
         return this.http.get<any>(currURL);
     }
+
+    fetchAvgPreferredTemp():Observable<any>{
+        return this.http.get<preferredTemp[]>(`${this.apiURL}/preferredDayTemp`)
+        .pipe(
+            map((tempArr)=>{
+                if(Array.isArray(tempArr) && tempArr.length>0){
+                    const total =  tempArr.reduce((sum,current)=>sum+current.preferredTemp, 0);
+                    const average = total / tempArr.length;
+                    return average
+                }else{
+                    return 1;
+                }
+            })
+        )
+    }
 }
 

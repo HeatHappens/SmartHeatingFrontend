@@ -26,7 +26,14 @@ export class TempSelectorComponent {
   empName!:any;
   preferredTemp!:number;
   postSuccessMsg!:string;
-  currentWeatherData!:currentWeather;
+  currentWeatherData:currentWeather = {
+    city:'',
+    currentDate:'',
+    temp:0,
+    feels_like:0,
+    min_temp:0,
+    max_temp:0
+  };
   forecastWeatherData!:any;
   preferredMinTemp:number = 0;
   preferredMaxTemp:number = 0;
@@ -53,7 +60,8 @@ export class TempSelectorComponent {
         this.postSuccessMsg = 'Your preference is saved!';
         setTimeout(()=>{
           this.postSuccessMsg = '';
-          this.closeTempDialog()
+          this.closeTempDialog();
+          this.sendAvgPreferredTemp();
         },1500)
       },
       error:(error)=>{console.log(error)}
@@ -63,7 +71,9 @@ export class TempSelectorComponent {
   hasEmployeePreferenceSaved(){
     this.apiService.checkEmpPreference(this.empID).subscribe({
       next:(data)=>{
-        if(!data){this.dialogRef.open(this.preferredTempEntry, this.loggedEmpInfo.dialogConfig)}
+        if(!data){
+          this.dialogRef.open(this.preferredTempEntry, this.loggedEmpInfo.dialogConfig)
+        }
       },
       error:(error)=>{console.log(error)}
     })
@@ -76,10 +86,7 @@ export class TempSelectorComponent {
   displayCurrentWeather(cityName:string){
     this.apiService.getCurrentWeather(cityName).subscribe({
       next:(data)=>{
-        console.log(Math.ceil(data.main.temp_min) - 2)
         const cDate = new Date(data.dt * 1000).toLocaleString().split(',')[0].trim();
-        this.preferredMinTemp = Math.ceil(data.main.temp_min) - 2;
-        this.preferredMaxTemp = Math.ceil(data.main.temp_max) + 2;
         this.currentWeatherData = {
           city:data.name,
           currentDate: cDate,
@@ -88,6 +95,8 @@ export class TempSelectorComponent {
           min_temp:data.main.temp_min,
           max_temp:data.main.temp_max
         };
+        this.preferredMinTemp = Math.ceil(data.main.temp_min) - 2;
+        this.preferredMaxTemp = Math.ceil(data.main.temp_max) + 2;
       },
       error:(error)=>{console.log(error)}
     })
@@ -101,4 +110,12 @@ export class TempSelectorComponent {
       error:(error)=>{console.log(error)}
     })
   }
+
+  sendAvgPreferredTemp(){
+    this.apiService.fetchAvgPreferredTemp().subscribe({
+      next:(data)=>{console.log('average preferred temp: '+data)},
+      error:(error)=>{console.log(error)}
+    })
+  }
+
 }

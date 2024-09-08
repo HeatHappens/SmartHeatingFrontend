@@ -7,10 +7,11 @@ import { BehaviorSubject } from "rxjs";
 })
 export class LoggedEmployeeInfo{
 
-    private employeeObservable = new BehaviorSubject<boolean>(false);
-    hasEmployeeLoggedIn$ = this.employeeObservable.asObservable();
+    private employeeLoggedObservable = new BehaviorSubject<boolean>(false);
+    hasEmployeeLoggedIn$ = this.employeeLoggedObservable.asObservable();
 
     public dialogConfig = new MatDialogConfig();
+
     constructor(){
         this.dialogConfig.autoFocus = true;
         this.dialogConfig.width = '1000px';
@@ -19,9 +20,7 @@ export class LoggedEmployeeInfo{
 
 
     updateEmployeeObservable(newData:boolean){
-        this.employeeObservable.next(newData)
+        this.employeeLoggedObservable.next(newData)
     }
-
-
 
 }

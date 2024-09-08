@@ -22,18 +22,40 @@
       "password": "gohan"
     },
     {
-      "id": "b900",
-      "firstName": "",
-      "lastName": "",
-      "emailID": "",
-      "password": ""
+      "id": "6d5e",
+      "firstName": "Prince",
+      "lastName": "Vegeta",
+      "emailID": "vegeta@gmail.com",
+      "password": "vegeta"
+    },
+    {
+      "id": "3f7d",
+      "firstName": "Chi",
+      "lastName": "Chi",
+      "emailID": "chi@gmail.com",
+      "password": "chi"
     }
   ],
   "preferredDayTemp": [
     {
+      "id": "bbfe",
+      "fullName": "gohan son",
+      "preferredTemp": 25
+    },
+    {
+      "id": "0fcb",
+      "fullName": "Goku Son",
+      "preferredTemp": 22
+    },
+    {
+      "id": "6d5e",
+      "fullName": "Prince Vegeta",
+      "preferredTemp": 26
+    },
+    {
       "id": "c3b7",
       "fullName": "Pavankumar Bashetty",
-      "preferredTemp": 32
+      "preferredTemp": 26
     }
   ]
 }
