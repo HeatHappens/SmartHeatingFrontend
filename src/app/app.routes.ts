@@ -4,7 +4,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LoginComponent } from './components/login/login.component';
 import { OffsetContributionComponent } from './components/offset-contribution/offset-contribution.component';
-import { PersonalTrackerComponent } from './personal-tracker/personal-tracker.component';
+import { PersonalTrackerComponent } from './components/personal-tracker/personal-tracker.component';
+
 
 export const routes: Routes = [
     {path:'',redirectTo:'/login',pathMatch:'full'},
